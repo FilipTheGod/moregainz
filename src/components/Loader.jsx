@@ -6,7 +6,7 @@ export default function Loader() {
     loading: true,
     size: 120,
     duration: 3,
-    colors: ["#1460e5", "#99fffe", "#191f2a"],
+    colors: ["#f22f59", "#99fffe", "#191923"],
   };
 
   return (

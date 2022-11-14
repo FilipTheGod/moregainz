@@ -11,10 +11,10 @@ const HeroBanner = () => {
           <div className="design"></div>
           <div className="content">
             <h1 className="title">
-              complete <span style={{ color: "#1460e5" }}>daily workout</span>{" "}
+              complete <span style={{ color: "#f22f59" }}>daily workout</span>{" "}
               Exercises
             </h1>
-            <p style={{ color: "#1460e5" }}>
+            <p style={{ color: "#f22f59" }}>
               Sweat. <span style={{ color: "#fff" }}>Smile.</span> Repeat.
             </p>
             <p className="description">

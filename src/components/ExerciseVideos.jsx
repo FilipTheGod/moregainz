@@ -18,7 +18,7 @@ const ExerciseVideos = ({ exerciseVideos, name }) => {
     <VideosContainer>
       <h2 className="title">
         Watch{" "}
-        <strong style={{ color: "#1460e5", textTransform: "Capitalize" }}>
+        <strong style={{ color: "#f22f59", textTransform: "Capitalize" }}>
           {name}
         </strong>{" "}
         exercise videos
@@ -131,7 +131,7 @@ const Button = styled.button`
   margin: auto auto;
   border: none;
   padding: 1rem;
-  color: #1460e5;
+  color: #f22f59;
   border-radius: 50%;
   background-color: #fafafa;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;

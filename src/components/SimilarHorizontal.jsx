@@ -26,7 +26,7 @@ const SimilarHorizontal = ({ targetMuscleExercises }) => {
           </div>
         ))}
       </div>
-      <div className="flex items-center justify-center m-auto p-4 text-blue-700 rounded-lg bg-white shadow-lg shadow-gray-500 hover:bg-blue-700 cursor-pointer md:p-2 sm:hidden sm:p-1"
+      <div className="flex items-center justify-center m-auto p-4 text-rose-600 rounded-lg bg-white shadow-lg shadow-gray-500 hover:bg-rose-500 cursor-pointer md:p-2 sm:hidden sm:p-1"
        onClick={RightHandler}>
         <KeyboardArrowRightIcon />
       </div>

@@ -44,7 +44,7 @@ const Div = styled.div`
     font-size: 1.2rem;
     a {
       text-decoration: none;
-      color: #1460e5;
+      color: #f22f59;
     }
   }
 
@@ -72,7 +72,7 @@ const Div = styled.div`
       font-size: 1rem;
       a {
         text-decoration: none;
-        color: #1460e5;
+        color: #f22f59;
       }
     }
   }

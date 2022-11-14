@@ -208,7 +208,7 @@ const Button = styled.button`
   outline: none;
 
   padding: 0.5rem 1.2rem;
-  background-color: #1460e5;
+  background-color: #f22f59;
   border-radius: 7px;
   color: #fff;
   text-decoration: none;
@@ -221,7 +221,7 @@ const Button = styled.button`
   transition: all 0.2s ease-in-out;
   &:hover {
     background-color: #fff;
-    color: #1460e5;
+    color: #f22f59;
   }
   @media screen and (min-width: 280px) and (max-width: 768px) {
     padding: 0.5rem 1rem;
