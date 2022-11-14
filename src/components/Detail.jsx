@@ -20,14 +20,14 @@ const ExerciseDetail = ({ exerciseDetail }) => {
     },
   ];
   return (
-    <DetailCard>
-      <div className="image">
-        <img src={gifUrl} alt={name} loading="lazy" className="detail-image" />
+    <div className="w-11/12 flex justify-between my-12 mx-auto py-8 px-12 gap-24 rounded-lg shadow-lg shadow-gray-500 md:flex-col md:p-8 md:gap-8 md:my-12 md:mx-auto ">
+      <div className="w-3/5 flex justify-center items-center md:m-auto">
+        <img src={gifUrl} alt={name} loading="lazy" className="w-full" />
       </div>
-      <div className="content">
-        <h3 className="heading">{name}</h3>
+      <div className="flex flex-col content-center justify-center">
+        <h3 className="mt-8 font-bold capitalize text-4xl">{name}</h3>
 
-        <p className="discription">
+        <p className="mt-4 text-xl font-medium text-gray-900">
           Exercises keep you strong.{" "}
           <strong style={{ color: "#1460e5" }}>{name}</strong> is the one of the
           best exercises to target your{" "}
@@ -35,95 +35,21 @@ const ExerciseDetail = ({ exerciseDetail }) => {
           you to improve your mood and gain energy.
         </p>
         {ExtraDetails.map((item) => (
-          <div key={item} className="muscleDetail">
-            <div className="muscleimage">
-              <img src={item.icon} alt={item.name} />
+          <div key={item} className="mt-8 flex gap-8 items-center">
+            <div className="w-16 h-16 bg-gray-100 flex justify-center items-center p-4 rounded-lg shadow-gray-500 hover:bg-blue-700">
+              <img className="w-full" src={item.icon} alt={item.name} />
             </div>
-            <p>{item.name}</p>
+            <p className="text-2xl capitalize text-gray-900">{item.name}</p>
           </div>
         ))}
       </div>
-    </DetailCard>
+    </div>
   );
 };
 
 const DetailCard = styled.div`
-  margin: 3rem auto;
-  display: flex;
-  justify-content: space-between;
-  width: 90vw;
-  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  border-radius: 9px;
-  padding: 2rem 3rem;
-  gap: 7rem;
-  .image {
-    width: 60%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    img {
-      width: 100%;
-    }
-  }
-  .content {
-    display: flex;
-    flex-direction: column;
-    align-content: center;
-    justify-content: center;
-
-    .heading {
-      margin-top: 2rem;
-      font-size: 2.5rem;
-      font-weight: bold;
-      text-transform: capitalize;
-    }
-    .discription {
-      margin-top: 1rem;
-      font-size: 1.3rem;
-      font-weight: 500;
-      color: #191f2a;
-    }
-    .muscleDetail {
-      margin-top: 2rem;
-      display: flex;
-      gap: 2rem;
-      align-items: center;
-      div {
-        width: 70px;
-        height: 70px;
-        background-color: #fafafa;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-        padding: 1rem;
-        &:hover {
-          box-shadow: rgba(20, 96, 229, 1) 0px 20px 30px -10px;
-        }
-        img {
-          width: 100%;
-        }
-      }
-      p {
-        font-size: 1.5rem;
-        text-transform: capitalize;
-        color: #191f2a;
-      }
-    }
-  }
 
   @media screen and (min-width: 520px) and (max-width: 768px) {
-    margin: 3rem auto;
-
-    flex-direction: column;
-
-    padding: 2rem;
-    gap: 2rem;
-
-    .image {
-      margin: auto auto;
-    }
     .content {
       display: flex;
       flex-direction: column;

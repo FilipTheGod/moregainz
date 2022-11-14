@@ -1,8 +1,7 @@
 import React from "react";
 import { GooeyCircleLoader } from "react-loaders-kit";
-import styled from "styled-components";
 
-function Loader() {
+export default function Loader() {
   const loaderProps = {
     loading: true,
     size: 120,
@@ -11,26 +10,12 @@ function Loader() {
   };
 
   return (
-    <LoaderDiv className="loader">
+    <div className="flex flex-col items-center content-center justify-center h-screen m-auto w-full">
       <GooeyCircleLoader {...loaderProps} />
-      <h2>MoreGainz</h2>
-    </LoaderDiv>
+      <h2 className="text-2xl text-blue-700 ">MoreGainz</h2>
+    </div>
   );
 }
 
-const LoaderDiv = styled.div`
-  width: 100%;
-  height: 100vh;
-  display: flex;
-  margin: auto auto;
-  flex-direction: column;
-  align-content: center;
-  justify-content: center;
-  align-items: center;
-  h2 {
-    color: #1460e5;
-    font-size: 1.5rem;
-  }
-`;
 
-export default Loader;
+

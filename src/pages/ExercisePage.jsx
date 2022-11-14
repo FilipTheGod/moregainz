@@ -10,7 +10,7 @@ const [exercises, setExercises] = useState([]);
 
 
   return (
-    <div>
+    <div className="flex flex-col gap-4">
 <SearchExercise
         search={search}
         setSearch={setSearch}
