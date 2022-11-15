@@ -11,14 +11,14 @@ const HeroBanner = () => {
           <div className="design"></div>
           <div className="content">
             <h1 className="title">
-              complete <span style={{ color: "#f22f59" }}>daily workout</span>{" "}
-              Exercises
+              train <span style={{ color: "#f22f59" }}>harder than last</span>{" "}
+              Time
             </h1>
             <p style={{ color: "#f22f59" }}>
-              Sweat. <span style={{ color: "#fff" }}>Smile.</span> Repeat.
+              Always. <span style={{ color: "#fff" }}>Deliver.</span> Quality.
             </p>
             <p className="description">
-              Checkout the most effective exercises.
+              Learn the best exercises for your body type and fitness goals.
             </p>
             <Button text={`Explore Exercises`} target='exercises'/>
           </div>
@@ -82,6 +82,8 @@ const Section = styled.section`
       display: none;
       width: 80%;
       img {
+        width: 400px;
+        height: auto;
         box-shadow: rgba(25, 31, 42, 1) 0px 3px 6px,
           rgba(25, 31, 42, 1) 0px 3px 6px;
         width: 100%;
@@ -97,6 +99,7 @@ const Section = styled.section`
     background-position: center center;
     background-size: cover;
     height: max-content;
+
     .overlay {
       .container {
         .design {
@@ -120,6 +123,7 @@ const Section = styled.section`
         }
         .image {
           display: none;
+
         }
       }
     }

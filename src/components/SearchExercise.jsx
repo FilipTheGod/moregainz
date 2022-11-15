@@ -63,7 +63,7 @@ const SearchExercise = ({
         <div className="heading">
           <h2 className="title">
             {" "}
-            Awesome Exercises you <br /> should Know{" "}
+             Exercises you <br /> should Know{" "}
           </h2>
         </div>
         <div className="input">

@@ -59,7 +59,7 @@ export default function SignUp() {
       <div className="flex justify-center flex-wrap items-center px-6 py-12 max-w-6xl mx-auto">
         <div className="md:w-[67%] lg:w-[50%] mb-12 md:mb-6">
           <img
-            src="https://images.unsplash.com/photo-1525011268546-bf3f9b007f6a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTB8fHNpZ24lMjBpbnxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=900&q=60"
+            src="https://media.istockphoto.com/id/1296789917/photo/red-arrow-on-white-background-isolated-3d-illustration.jpg?b=1&s=170667a&w=0&k=20&c=Vyxy0WZPMa05b_BcZQn8WnAhl_ulBRtNF210DExwtPI="
             alt="key"
             className="w-full rounded-2xl"
           />
@@ -108,7 +108,7 @@ export default function SignUp() {
                 Have a account?
                 <Link
                   to="/sign-in"
-                  className="text-red-600 hover:text-red-700 transition duration-200 ease-in-out ml-1"
+                  className="text-rose-600 hover:text-rose-700 transition duration-200 ease-in-out ml-1"
                 >
                   Sign in
                 </Link>
@@ -116,14 +116,14 @@ export default function SignUp() {
               <p>
                 <Link
                   to="/forgotpassword"
-                  className="text-blue-600 hover:text-blue-800 transition duration-200 ease-in-out"
+                  className="text-rose-600 hover:text-rose-800 transition duration-200 ease-in-out"
                 >
                   Forgot password?
                 </Link>
               </p>
             </div>
             <button
-              className="w-full bg-blue-600 text-white px-7 py-3 text-sm font-medium uppercase rounded shadow-md hover:bg-blue-700 transition duration-150 ease-in-out hover:shadow-lg active:bg-blue-800"
+              className="w-full bg-rose-500 text-white px-7 py-3 text-sm font-medium uppercase rounded shadow-md hover:bg-rose-700 transition duration-150 ease-in-out hover:shadow-lg active:bg-rose-800"
               type="submit"
             >
               Sign up

@@ -81,14 +81,14 @@ export default function Profile() {
                     changeDetail && onSubmit();
                     setChangeDetail((prevState) => !prevState);
                   }}
-                  className="text-red-600 hover:text-red-700 transition ease-in-out duration-200 ml-1 cursor-pointer"
+                  className="text-rose-600 hover:text-rose-700 transition ease-in-out duration-200 ml-1 cursor-pointer"
                 >
                   {changeDetail ? "Apply change" : "Edit"}
                 </span>
               </p>
               <p
                 onClick={onLogout}
-                className="text-blue-600 hover:text-blue-800 transition duration-200 ease-in-out cursor-pointer"
+                className="text-rose-600 hover:text-rose-800 transition duration-200 ease-in-out cursor-pointer"
               >
                 Sign out
               </p>

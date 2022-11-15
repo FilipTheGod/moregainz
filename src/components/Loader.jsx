@@ -12,7 +12,7 @@ export default function Loader() {
   return (
     <div className="flex flex-col items-center content-center justify-center h-screen m-auto w-full">
       <GooeyCircleLoader {...loaderProps} />
-      <h2 className="text-2xl text-blue-700 ">MoreGainz</h2>
+      <h2 className="text-2xl text-rose-500 ">MoreGainz</h2>
     </div>
   );
 }

@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { FaHeart, FaRegHeart } from 'react-icons/fa';
 const ExerciseCard = ({ exercise, index }) => {
   let str;
   const length = exercise.name.length;
@@ -16,20 +18,130 @@ const ExerciseCard = ({ exercise, index }) => {
       className="exercise_card"
       to={`/exercise/${exercise.id}`}
     >
-      <div className="flex flex-col px-4 py-8 gap-8 rounded-lg w-max h-max shadow-lg shadow-gray-500 box-border hover:shadow-gray-700 md:p-8 md:flex md:flex-col md:gap-4 md:w-2/5 md:rounded-lg md:box-border md:shadow-gray-500 md:hover:shadow-gray-600 sm:w-full sm:self-center sm:h-max">
-        <div className="m-auto w-4/5 md:m-auto md:w-11/12 sm:text-sm">
-          <img className="w-full md:w-full " src={exercise.gifUrl} alt={exercise.name} loading="lazy" />
+      <ExerciseCardDiv>
+        <div className="image">
+          <img src={exercise.gifUrl} alt={exercise.name} loading="lazy" />
         </div>
-        <div className="flex justify-around text-base gap-8 md:text-sm">
-          <span className="py-4 px-8 capitalize bg-rose-500 rounded-2xl text-white font-medium text-sm hover:text-rose-500 hover:bg-gray-100 shadow-gray-500 md:py-3 md:px-4 md:p-3.5 md:text-sm sm:py-2 sm:px-4 sm:text-sm sm:p-2.5">{exercise.bodyPart}</span>
-          <span className="hover:bg-rose-500 hover:text-white text-rose-500 bg-gray-100 shadow-gray-500">{exercise.target}</span>
+        <div className="content">
+          <span className="btn">{exercise.bodyPart}</span>
+          <span className="btn btn2">{exercise.target}</span>
+          <div className=" top-[10%] right-[7%] z-12 bg-white cursor-pointer border-2 border-black rounded-full w-12 h-12 flex justify-center items-center"
+            onClick={() => {}}>
+          <FaHeart className="text-lg text-black  "/>
+          </div>
         </div>
-        <h3 className="font-semibold  text-xl text-center text-black capitalize break-words">{str}</h3>
-      </div>
+        <h3>{str}</h3>
+      </ExerciseCardDiv>
     </Link>
   );
 };
 
+const ExerciseCardDiv = styled.div`
+  padding: 2rem 1rem;
+  width: max-content;
+  height: max-content;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  border-radius: 9px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  box-sizing: border-box;
+  &:hover {
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 20px 1px,
+      rgba(14, 30, 37, 0.2) 0px 2px 16px 1px;
+  }
+  .image {
+    width: 80%;
+    margin: auto auto;
+    img {
+      width: 100%;
+    }
+  }
+  .content {
+    display: flex;
+    justify-content: space-around;
+    gap: 2rem;
+    font-size: 1rem;
+    .btn {
+      padding: 1rem 2rem;
+      border: none;
+      background-color: #f22f59;
+      text-transform: capitalize;
+      border-radius: 15px;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+        rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      color: #fff;
+      font-size: 100%;
+      font-weight: 500;
+      &:hover {
+        color:#f22f59;
+        background-color: #fafafa;
+      }
+    }
+    .btn2 {
+      color: #f22f59;
+      background-color: #fafafa;
+      box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px,
+        rgba(0, 0, 0, 0.23) 0px 3px 6px;
+      &:hover {
+        background-color: #f22f59;
+        color: #fff;
+      }
+    }
+  }
+  h3 {
+    font-size: 1.3rem;
+    text-align: center;
+    color: #000;
+    font-weight: 600;
+    text-transform: capitalize;
+  }
+  @media screen and (min-width: 520px) and (max-width: 768px) {
+    padding: 2rem;
+    width: 40vw;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    border-radius: 9px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    box-sizing: border-box;
+    &:hover {
+      box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 20px 1px,
+        rgba(14, 30, 37, 0.2) 0px 2px 16px 1px;
+    }
+    .image {
+      width: 90%;
+      margin: auto auto;
+      img {
+        width: 100%;
+      }
+    }
+    .content {
+      font-size: 0.9rem;
+      .btn {
+        font-size: 95%;
+        padding: 0.7rem 1rem;
+        border-radius: 9px;
+      }
+    }
+    h3 {
+      word-break: word-break;
+    }
+  }
+  @media screen and (min-width: 320px) and (max-width: 520px) {
+    width: 100%;
+    height: max-content;
+    align-self: center;
+    .content {
+      font-size: 0.9rem;
+      .btn {
+        font-size: 95%;
+        padding: 0.5rem 1rem;
+        border-radius: 9px;
+      }
+    }
+  }
+`;
 
 
 
