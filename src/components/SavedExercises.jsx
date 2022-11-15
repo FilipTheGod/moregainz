@@ -1,138 +1,47 @@
 import React, { useState, useEffect } from "react";
-import Pagination from "@mui/material/Pagination";
-import { FetchData, ExerciseOptions } from "../utils/fetchData";
-import styled from "styled-components";
-import ExerciseCard from "./ExerciseCard";
+// import Pagination from "@mui/material/Pagination";
+// import { FetchData, ExerciseOptions } from "../utils/fetchData";
+// import styled from "styled-components";
+import useAuthStatus from "../hooks/useAuthStatus";
+import { db } from '../firebase';
+import { onSnapshot, doc, updateDoc } from 'firebase/firestore';
 
-export default function SavedExercises({ exercises, bodyPart, setExercises }) {
-  const [currentPage, setCurrentPage] = useState(1);
-  const ExercisePerPage = 9;
-  const indexOfLastExercise = currentPage * ExercisePerPage;
-  const indexOfFirstExercise = indexOfLastExercise - ExercisePerPage;
-  const currentExercises = exercises.slice(
-    indexOfFirstExercise,
-    indexOfLastExercise
-  );
-  useEffect(() => {
-    const fetchExerciseData = async () => {
-      let ExerciseData = [];
-      if (bodyPart === "all") {
-        ExerciseData = await FetchData(
-          "https://exercisedb.p.rapidapi.com/exercises",
-          ExerciseOptions
-        );
-      } else {
-        ExerciseData = await FetchData(
-          `https://exercisedb.p.rapidapi.com/exercises/bodyPart/${bodyPart}`,
-          ExerciseOptions
-        );
-      }
-      setExercises(ExerciseData);
-    };
-    fetchExerciseData();
-  }, [bodyPart, setExercises]);
-  const paginate = (e, value) => {
-    setCurrentPage(value);
-    window.scrollTo({ top: 1700, behavior: "smooth" });
-  };
+
+
+export default function SavedExercises() {
+const { user } = useAuthStatus();
+const [savedExercises, setSavedExercises] = useState([]);
+
+useEffect(() => {
+  onSnapshot(doc(db, 'users', `${user?.uid}`), (doc) => {
+    setSavedExercises(doc.data().savedExercises);
+  });
+}, [user?.uid]);
+
+//delete saved exercise from database
+
+const exerciseRef = doc(db, 'users', `${user?.uid}`);
+const deleteExercise = async (id) => {
+  try{
+    const result = savedExercises.filter((exercise) => exercise.id !== id);
+    await updateDoc(exerciseRef, {
+      savedExercises: result,
+    });
+    console.log('saved exercise', result)
+  } catch (error) {
+    console.log(error)
+  }
+};
+
+
+
+
+
 
   return (
-    <ExerciseContainer id="exercise">
-      <h2>Showing Exercises Results</h2>
-      <div className="card">
-        {currentExercises.map((exercise, index) => (
-          <ExerciseCard key={index} exercise={exercise} flg={false} />
-        ))}
-      </div>
-      <PaginationDiv>
-        {exercises.length > ExercisePerPage && (
-          <Pagination
-            shape="rounded"
-            defaultPage={1}
-            count={Math.ceil(exercises.length / ExercisePerPage)}
-            page={currentPage}
-            onChange={paginate}
-            size="medium"
-            color="primary"
-          />
-        )}
+<>
 
-      </PaginationDiv>
-    </ExerciseContainer>
-  );
+</>
+  )
 }
-const ExerciseContainer = styled.div`
-  margin: 7rem 3rem;
-  h2 {
-    font-size: 2.3rem;
-    text-align: center;
-    margin-bottom: 3rem;
-    text-transform: capitalize;
-  }
-  .card {
-    margin: auto auto;
-    /* border: 1px solid red; */
-
-    display: flex;
-    width: 95%;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: center;
-
-    gap: 3rem;
-  }
-
-  @media screen and (min-width: 520px) and (max-width: 768px) {
-    margin: 2rem 1rem;
-    h2 {
-      font-size: 2rem;
-      text-align: center;
-      margin-bottom: 3rem;
-      text-transform: capitalize;
-    }
-    .card {
-      margin: auto auto;
-      /* border: 1px solid red; */
-
-      display: flex;
-      width: 95%;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-content: center;
-      gap: 2rem;
-    }
-  }
-
-  @media screen and (min-width: 320px) and (max-width: 520px) {
-    margin: 2rem 0;
-    h2 {
-      margin-top: 1rem;
-      font-size: 1.3rem;
-      text-align: center;
-    }
-    .card {
-      display: flex;
-      width: 85vw;
-      flex-wrap: nowrap;
-
-      flex-direction: column;
-      justify-content: space-between;
-      align-content: center;
-      align-items: center;
-      gap: 2rem;
-    }
-  }
-`;
-
-const PaginationDiv = styled.div`
-  display: flex;
-  justify-content: center;
-  margin-top: 6rem;
-  font-size: 1.3rem;
-  @media screen and (min-width: 320px) and (max-width: 520px) {
-    font-size: 0.2rem;
-    margin: auto auto;
-    margin-top: 3rem;
-  }
-`;
 
