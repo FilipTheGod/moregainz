@@ -3,9 +3,14 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
 import { useState } from "react";
+import { db } from '../firebase';
+import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
+import useAuthStatus from "../hooks/useAuthStatus";
 const ExerciseCard = ({ exercise, index }) => {
   let str;
   const [isFavorite, setIsFavorite] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const { user } = useAuthStatus();
   const length = exercise.name.length;
   if (length > 20) {
     str = exercise.name.slice(0, 20);
@@ -13,6 +18,27 @@ const ExerciseCard = ({ exercise, index }) => {
   } else {
     str = exercise.name;
   }
+  const exerciseID = doc(db, 'users', `${user?.uid}`);
+  const saveExercise = async () => {
+    console.log('user at exercise card  @ save exercise : ',user)
+    if (user?.email) {
+      setIsFavorite(!isFavorite);
+      setSaved(!saved);
+      const savedExercise = await updateDoc(exerciseID, {
+        savedExercises: arrayUnion({
+          id: exercise.id,
+          name: exercise.name,
+          gifUrl: exercise.gifUrl,
+          // bodyPart: exercise.bodyPart,
+          // target: exercise.target,
+        }),
+      });
+      console.log('saved exercise', savedExercise)
+
+    } else {
+      alert('Please log in to save a movie');
+    }
+  };
 
   return (
     <Link
@@ -27,10 +53,10 @@ const ExerciseCard = ({ exercise, index }) => {
         <div className="content">
           <span className="btn">{exercise.bodyPart}</span>
           <span className="btn btn2">{exercise.target}</span>
-          <div className=" top-[13%] right-[7%] z-10 bg-white cursor-pointer border-2 border-black rounded-full w-12 h-12 flex justify-center items-center"
-            onClick={() => {}}>
+          <button className=" top-[10%] right-[7%] z-12 bg-white cursor-pointer border-2 border-black rounded-full w-12 h-12 flex justify-center items-center"
+          onClick={saveExercise}>
           {isFavorite ? <FaHeart className="text-lg text-black "/> : <FaRegHeart className="text-lg text-black "/>}
-          </div>
+          </button>
         </div>
         <h3>{str}</h3>
       </ExerciseCardDiv>

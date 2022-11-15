@@ -30,8 +30,8 @@ const ExerciseCard = ({ exercise, index }) => {
           id: exercise.id,
           name: exercise.name,
           gifUrl: exercise.gifUrl,
-          bodyPart: exercise.bodyPart,
-          target: exercise.target,
+          // bodyPart: exercise.bodyPart,
+          // target: exercise.target,
         }),
       });
       console.log('saved exercise', savedExercise)
