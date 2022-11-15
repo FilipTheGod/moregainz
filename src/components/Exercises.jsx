@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from "react";
-// import OAuth from "../components/OAuth";
-// import { db } from '../firebase';
-// import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
 import Pagination from "@mui/material/Pagination";
 import { FetchData, ExerciseOptions } from "../utils/fetchData";
 import styled from "styled-components";
 import ExerciseCard from "./ExerciseCard";
-// import { FaHeart, FaRegHeart } from 'react-icons/fa';
 const Exercises = ({ exercises, bodyPart, setExercises }) => {
   const [currentPage, setCurrentPage] = useState(1);
   const ExercisePerPage = 9;
@@ -16,10 +12,6 @@ const Exercises = ({ exercises, bodyPart, setExercises }) => {
     indexOfFirstExercise,
     indexOfLastExercise
   );
-  // const [like, setLike] = useState(false);
-  // const [saved, setSaved] = useState(false);
-  // const { user } = OAuth();
-
 
   useEffect(() => {
     const fetchExerciseData = async () => {
@@ -45,26 +37,6 @@ const Exercises = ({ exercises, bodyPart, setExercises }) => {
     window.scrollTo({ top: 1700, behavior: "smooth" });
   };
 
-  // const exerciseID = doc(db, 'users', `${user?.email}`);
-
-  // const saveExercise = async () => {
-  //   if (user?.email) {
-  //     setLike(!like);
-  //     setSaved(true);
-  //     await updateDoc(exerciseID, {
-  //       savedShows: arrayUnion({
-  //         id: exercises.id,
-  //         title: exercises.title,
-  //         img: exercises.backdrop_path,
-  //       }),
-  //     });
-  //   } else {
-  //     alert('Please log in to see a exercise');
-  //   }
-  // };
-
-
-
   return (
     <ExerciseContainer id="exercise">
       <h2>Showing Exercises Results</h2>
@@ -72,13 +44,6 @@ const Exercises = ({ exercises, bodyPart, setExercises }) => {
         {currentExercises.map((exercise, index) => (
           <ExerciseCard key={index} exercise={exercise} flg={false} />
         ))}
-        {/* <p onClick={saveExercise}>
-          {like ? (
-            <FaHeart className='absolute top-4 left-4 text-black' />
-          ) : (
-            <FaRegHeart className='absolute top-4 left-4 text-rose-400' />
-          )}
-        </p> */}
       </div>
       <PaginationDiv>
         {exercises.length > ExercisePerPage && (

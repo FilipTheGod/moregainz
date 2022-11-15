@@ -92,7 +92,9 @@ export default function Profile() {
               >
                 Sign out
               </p>
+
             </div>
+            <h1 className="text-3xl md:text-5xl font-bold text-center"> My Favorites</h1>
           </form>
         </div>
       </section>

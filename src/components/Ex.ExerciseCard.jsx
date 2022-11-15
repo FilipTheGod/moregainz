@@ -2,8 +2,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { useState } from "react";
 const ExerciseCard = ({ exercise, index }) => {
   let str;
+  const [isFavorite, setIsFavorite] = useState(false);
   const length = exercise.name.length;
   if (length > 20) {
     str = exercise.name.slice(0, 20);
@@ -27,7 +29,7 @@ const ExerciseCard = ({ exercise, index }) => {
           <span className="btn btn2">{exercise.target}</span>
           <div className=" top-[13%] right-[7%] z-10 bg-white cursor-pointer border-2 border-black rounded-full w-12 h-12 flex justify-center items-center"
             onClick={() => {}}>
-          <FaHeart className="text-lg text-black  "/>
+          {isFavorite ? <FaHeart className="text-lg text-black "/> : <FaRegHeart className="text-lg text-black "/>}
           </div>
         </div>
         <h3>{str}</h3>

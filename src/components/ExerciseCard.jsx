@@ -2,8 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { FaHeart, FaRegHeart } from 'react-icons/fa';
+import { useState } from "react";
+import { db } from '../firebase';
+import { arrayUnion, doc, updateDoc } from 'firebase/firestore';
+import useAuthStatus from "../hooks/useAuthStatus";
 const ExerciseCard = ({ exercise, index }) => {
   let str;
+  const [isFavorite, setIsFavorite] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const { user } = useAuthStatus();
   const length = exercise.name.length;
   if (length > 29) {
     str = exercise.name.slice(0, 29);
@@ -11,28 +18,53 @@ const ExerciseCard = ({ exercise, index }) => {
   } else {
     str = exercise.name;
   }
+  //if you press the heart icon, it will change to a filled heart icon and it will be added to the favorites list that is stored in the database and will be displayed on the favorites page in the profile section of the app.
+  const exerciseID = doc(db, 'users', `${user?.uid}`);
+  const saveExercise = async () => {
+    console.log('user at exercise card  @ save exercise : ',user)
+    if (user?.email) {
+      setIsFavorite(!isFavorite);
+      setSaved(!saved);
+      const savedExercise = await updateDoc(exerciseID, {
+        savedExercises: arrayUnion({
+          id: exercise.id,
+          name: exercise.name,
+          gifUrl: exercise.gifUrl,
+          bodyPart: exercise.bodyPart,
+          target: exercise.target,
+        }),
+      });
+      console.log('saved exercise', savedExercise)
 
+    } else {
+      alert('Please log in to save a movie');
+    }
+  };
   return (
+
+
+      <ExerciseCardDiv>
     <Link
       style={{ textDecoration: "none" }}
       className="exercise_card"
       to={`/exercise/${exercise.id}`}
     >
-      <ExerciseCardDiv>
         <div className="image">
           <img src={exercise.gifUrl} alt={exercise.name} loading="lazy" />
         </div>
+        <h3>{str}</h3>
+    </Link>
         <div className="content">
           <span className="btn">{exercise.bodyPart}</span>
           <span className="btn btn2">{exercise.target}</span>
-          <div className=" top-[10%] right-[7%] z-12 bg-white cursor-pointer border-2 border-black rounded-full w-12 h-12 flex justify-center items-center"
-            onClick={() => {}}>
-          <FaHeart className="text-lg text-black  "/>
-          </div>
+          <button className=" top-[10%] right-[7%] z-12 bg-white cursor-pointer border-2 border-black rounded-full w-12 h-12 flex justify-center items-center"
+          onClick={saveExercise}>
+          {isFavorite ? <FaHeart className="text-lg text-black "/> : <FaRegHeart className="text-lg text-black "/>}
+          </button>
         </div>
-        <h3>{str}</h3>
       </ExerciseCardDiv>
-    </Link>
+
+
   );
 };
 
@@ -145,5 +177,5 @@ const ExerciseCardDiv = styled.div`
 
 
 
-// const
+
 export default ExerciseCard;
