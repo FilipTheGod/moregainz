@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { db } from "../firebase";
-// import SavedExercises from "../components/SavedExercises";
+import SavedExercises from "../components/SavedExercises";
 
 export default function Profile() {
   const auth = getAuth();
@@ -100,12 +100,8 @@ export default function Profile() {
 
             </div>
             <h1 className="text-3xl md:text-5xl font-bold text-center"> My Favorites</h1>
-            {/* <SavedExercises
-              search={search}
-              setExercises={setExercises}
-              bodyPart={bodyPart}
-              exercises={exercises}
-            /> */}
+            <SavedExercises 
+            />
           </form>
         </div>
       </section>
