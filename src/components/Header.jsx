@@ -26,7 +26,7 @@ export default function Header() {
   <div className='bg-zinc-900	 border-b shadow-sm sticky  top-0 z-40'>
   <header className='flex justify-between items-center px-3 max-w-6xl mx-auto'>
     <div>
-      <img src={header} alt="header" className="h-5 cursor-pointer"/>
+      <img src={header} alt="header" className="h-20 cursor-pointer"/>
     </div>
     <div>
       <ul className='flex space-x-10 text-white'>

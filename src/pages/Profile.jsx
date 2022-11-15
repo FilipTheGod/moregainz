@@ -4,13 +4,16 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import { db } from "../firebase";
-
-
+// import SavedExercises from "../components/SavedExercises";
 
 export default function Profile() {
   const auth = getAuth();
   const navigate = useNavigate();
   const [changeDetail, setChangeDetail] = useState(false);
+  // const [exercises, setExercises] = useState([]);
+  // const [bodyPart, setBodyPart] = useState("all");
+  // const [search, setSearch] = useState("");
+
   const [formData, setFormData] = useState({
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
@@ -98,10 +101,10 @@ export default function Profile() {
             </div>
             <h1 className="text-3xl md:text-5xl font-bold text-center"> My Favorites</h1>
             {/* <SavedExercises
-            search={search}
-            setExercises={setExercises}
-            bodyPart={bodyPart}
-            exercises={exercises}
+              search={search}
+              setExercises={setExercises}
+              bodyPart={bodyPart}
+              exercises={exercises}
             /> */}
           </form>
         </div>
