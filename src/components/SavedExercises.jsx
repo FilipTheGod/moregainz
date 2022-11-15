@@ -8,6 +8,7 @@ import { AiOutlineClose } from 'react-icons/ai';
 
 export default function SavedExercises({ exercises, bodyPart, setExercises }) {
   let str;
+
 const { user } = useAuthStatus();
 const [savedExercises, setSavedExercises] = useState([]);
 
@@ -38,6 +39,7 @@ const deleteExercise = async (id) => {
   <div className="card">
         {savedExercises.map((exercise, index) => (
     <ExerciseCardDiv>
+
       <Link
         style={{ textDecoration: "none" }}
         className="exercise_card"
@@ -61,15 +63,15 @@ const deleteExercise = async (id) => {
 }
 
 const ExerciseCardDiv = styled.div`
-  padding: 2rem 1rem;
+  padding: 1rem 6rem;
   width: max-content;
+  box-sizing: border-box;
   height: max-content;
   display: flex;
   flex-direction: column;
   gap: 2rem;
   border-radius: 9px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-  box-sizing: border-box;
   &:hover {
     box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 20px 1px,
       rgba(14, 30, 37, 0.2) 0px 2px 16px 1px;
@@ -84,7 +86,7 @@ const ExerciseCardDiv = styled.div`
   .content {
     display: flex;
     justify-content: space-around;
-    gap: 2rem;
+    gap: 1rem;
     font-size: 1rem;
     .btn {
       padding: 1rem 2rem;

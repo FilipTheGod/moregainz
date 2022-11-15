@@ -99,8 +99,8 @@ export default function Profile() {
               </p>
 
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold text-center"> My Favorites</h1>
-            <SavedExercises 
+            <h1 className="text-3xl md:text-5xl font-bold text-center h-16 "> My Favorites</h1>
+            <SavedExercises
             />
           </form>
         </div>
