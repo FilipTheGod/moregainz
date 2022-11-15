@@ -25,20 +25,20 @@ const SearchExercise = ({
     fetchExerciseData();
   }, []);
 
-  // console.log(bodyParts);
+  
   const searchHandler = (e) => {
     setSearch(e.target.value.toLowerCase());
   };
 
   const submitHandler = async () => {
-    // console.log(search);
+
 
     if (search) {
       const exercisesData = await FetchData(
         "https://exercisedb.p.rapidapi.com/exercises",
         ExerciseOptions
       );
-      //   console.log(exercisesData);
+
 
       const searchExercises = exercisesData.filter(
         (exercise) =>
@@ -47,7 +47,7 @@ const SearchExercise = ({
           exercise.equipment.toLowerCase().includes(search) ||
           exercise.bodyPart.toLowerCase().includes(search)
       );
-      //   console.log(searchExercises);
+
       setSearch("");
       setExercises(searchExercises);
       window.scrollTo({
@@ -63,7 +63,7 @@ const SearchExercise = ({
         <div className="heading">
           <h2 className="title">
             {" "}
-             Exercises you <br /> should Know{" "}
+              Exercises you <br /> should Know{" "}
           </h2>
         </div>
         <div className="input">
@@ -79,7 +79,6 @@ const SearchExercise = ({
         <div id="ExploreExercise" className="HomeHorizontalScrollbar">
           <HomeHorizontalScrollbar
             data={bodyParts}
-            // bodyParts
             bodyPart={bodyPart}
             setBodyPart={setBodyPart}
           />

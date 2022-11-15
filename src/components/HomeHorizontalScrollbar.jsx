@@ -66,7 +66,6 @@ const HomeHorizontalScrollbar = ({ data, bodyPart, setBodyPart }) => {
     BodyPartImage[i].text = data[i];
   }
 
-  /*========================={arrows}=========================*/
   const ref = useRef(null);
 
   const LeftHandler = () => {

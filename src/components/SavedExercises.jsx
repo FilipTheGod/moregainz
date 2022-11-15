@@ -18,7 +18,6 @@ useEffect(() => {
   });
 }, [user?.uid]);
 
-//delete saved exercise from database
 
 const exerciseRef = doc(db, 'users', `${user?.uid}`);
 const deleteExercise = async (id) => {
@@ -45,16 +44,16 @@ const deleteExercise = async (id) => {
         className="exercise_card"
         to={`/exercise/${exercise.id}`}
       >
-     <div className="image">
-       <img src={exercise.gifUrl} alt={exercise.name} loading="lazy" />
-     </div>
-     <h3>{str}</h3>
+      <div className="image">
+        <img src={exercise.gifUrl} alt={exercise.name} loading="lazy" />
+      </div>
+      <h3>{str}</h3>
       </Link>
-     <div className="content">
-       <span className="btn">{exercise.bodyPart}</span>
-       <span className="btn btn2">{exercise.target}</span>
-       <p onClick={()=> deleteExercise(exercise.id)} className="top-[10%] right-[7%] z-12 bg-white cursor-pointer border-2 border-black rounded-full w-12 h-12 flex justify-center items-center"><AiOutlineClose /></p>
-     </div>
+      <div className="content">
+        <span className="btn">{exercise.bodyPart}</span>
+        <span className="btn btn2">{exercise.target}</span>
+        <p onClick={()=> deleteExercise(exercise.id)} className="top-[10%] right-[7%] z-12 bg-white cursor-pointer border-2 border-black rounded-full w-12 h-12 flex justify-center items-center"><AiOutlineClose /></p>
+      </div>
         </ExerciseCardDiv>
         ))}
   </div>

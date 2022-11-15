@@ -10,9 +10,6 @@ export default function Profile() {
   const auth = getAuth();
   const navigate = useNavigate();
   const [changeDetail, setChangeDetail] = useState(false);
-  // const [exercises, setExercises] = useState([]);
-  // const [bodyPart, setBodyPart] = useState("all");
-  // const [search, setSearch] = useState("");
 
   const [formData, setFormData] = useState({
     name: auth.currentUser.displayName,
@@ -32,12 +29,10 @@ export default function Profile() {
   async function onSubmit() {
     try {
       if (auth.currentUser.displayName !== name) {
-        //update display name in firebase auth
         await updateProfile(auth.currentUser, {
           displayName: name,
         });
 
-        // update name in the firestore
 
         const docRef = doc(db, "users", auth.currentUser.uid);
         await updateDoc(docRef, {
@@ -55,7 +50,6 @@ export default function Profile() {
         <h1 className="text-3xl text-center mt-6 font-bold">My Profile</h1>
         <div className="w-full md:w-[50%] mt-6 px-3">
           <form>
-            {/* Name Input */}
 
             <input
               type="text"
@@ -68,7 +62,6 @@ export default function Profile() {
               }`}
             />
 
-            {/* Email Input */}
 
             <input
               type="email"

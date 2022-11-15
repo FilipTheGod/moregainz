@@ -1,6 +1,6 @@
 import React from "react";
 import SimilarHorizontal from "./SimilarHorizontal";
-// import Loader from "./Loader";
+
 const SimilarExercises = ({ equipmentExercises, targetMuscleExercises }) => {
   return (
     <div className="mt-20 flex flex-col justify-center items-center md:mt-12 sm:mt-12">

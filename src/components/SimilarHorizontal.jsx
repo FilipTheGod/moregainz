@@ -19,7 +19,7 @@ const SimilarHorizontal = ({ targetMuscleExercises }) => {
         <KeyboardArrowLeftIcon />
       </div>
       <div className="flex flex-no-wrap h-auto overflow-x-auto overflow-y-hidden p-1 w-full scroll-smooth  scrolling-touch scrollbar"
-       ref={ref}>
+        ref={ref}>
         {targetMuscleExercises.map((item) => (
           <div className="child" key={item}>
             <ExerciseCard exercise={item} flg={true} />
@@ -27,7 +27,7 @@ const SimilarHorizontal = ({ targetMuscleExercises }) => {
         ))}
       </div>
       <div className="flex items-center justify-center m-auto p-4 text-rose-600 rounded-lg bg-white shadow-lg shadow-gray-500 hover:bg-rose-500 cursor-pointer md:p-2 sm:hidden sm:p-1"
-       onClick={RightHandler}>
+        onClick={RightHandler}>
         <KeyboardArrowRightIcon />
       </div>
     </div>

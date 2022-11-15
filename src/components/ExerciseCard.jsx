@@ -18,7 +18,6 @@ const ExerciseCard = ({ exercise, index }) => {
   } else {
     str = exercise.name;
   }
-  //if you press the heart icon, it will change to a filled heart icon and it will be added to the favorites list that is stored in the database and will be displayed on the favorites page in the profile section of the app.
   const exerciseID = doc(db, 'users', `${user?.uid}`);
   const saveExercise = async () => {
     console.log('user at exercise card  @ save exercise : ',user)
