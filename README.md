@@ -1,12 +1,12 @@
 #  MoreGainz
 
 
-MoreGainz, your guide to the gym 
-Where exercises are performed with form and grace
-Our library of moves will put you in your place
-Avoiding injuries, you'll be able to face
-Any workout with confidence, ease, and poise
-Join us, and discover your fitness potential
+MoreGainz, your guide to the gym, 
+where exercises are performed with form and grace.
+Our library of moves will put you in your place while
+avoiding injuries, you'll be able to face
+any workout with confidence, ease, and poise.
+Join us, and discover your fitness potential.
 With MoreGainz, your journey to health is essential.
 
 
